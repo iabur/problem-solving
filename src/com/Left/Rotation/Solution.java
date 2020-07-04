@@ -1,26 +1,29 @@
 package com.Left.Rotation;
+import java.io.*;
+import java.math.*;
+import java.security.*;
+import java.text.*;
+import java.util.*;
+import java.util.concurrent.*;
+import java.util.regex.*;
 
+public class Solution {
 
-
-import java.util.Date;
-import java.util.Scanner;
-
-public class Solution{
-    public static final Scanner scanner = new Scanner(System.in);
+    static int reverseArray(int[] a) {
+        for (int i = a.length - 1; i >= 0; i--) {
+            System.out.print(a[i]);
+            System.out.print(" ");
+        }
+        return 0;
+    }
 
     public static void main(String[] args) {
-        String[] nd = scanner.nextLine().split(" ");
-        String[] aItems = scanner.nextLine().split(" ");
-        int n = Integer.parseInt(nd[0]);
-        int d = Integer.parseInt(nd[1]);
-        int[] a = new int[n];
+        final Scanner scanner = new Scanner(System.in);
+        int n = scanner.nextInt();
+        int[] arr = new int[n];
         for (int i = 0; i < n; i++) {
-            int aItem = Integer.parseInt(aItems[i]);
-            a[i] = aItem;
+            arr[i] = scanner.nextInt();
         }
-        for (int i = 0; i < n; i++) {
-            System.out.print(a[(d+i) % n] + " ");
-        }
-        scanner.close();
+        reverseArray(arr);
     }
 }
