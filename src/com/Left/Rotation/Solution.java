@@ -1,29 +1,30 @@
 package com.Left.Rotation;
-import java.io.*;
-import java.math.*;
-import java.security.*;
-import java.text.*;
-import java.util.*;
-import java.util.concurrent.*;
-import java.util.regex.*;
 
-public class Solution {
+import java.util.Scanner;
 
-    static int reverseArray(int[] a) {
-        for (int i = a.length - 1; i >= 0; i--) {
-            System.out.print(a[i]);
-            System.out.print(" ");
+public class Solution{
+    static long hourGlassSum(int[][] arr){
+        long maxValue = Long.MIN_VALUE;
+        for (int i = 1; i < 5; i++) {
+            for (int j = 1; j < 5; j++) {
+                long temp = arr[i][j] + arr[i-1][j] + arr[i-1][j-1] + arr[i-1][j+1] + arr[i+1][j] +arr[i+1][j-1] + arr[i+1][j+1];
+                if (temp > maxValue) {
+                    maxValue = temp;
+                }
+            }
         }
-        return 0;
+        return maxValue;
     }
 
     public static void main(String[] args) {
-        final Scanner scanner = new Scanner(System.in);
-        int n = scanner.nextInt();
-        int[] arr = new int[n];
-        for (int i = 0; i < n; i++) {
-            arr[i] = scanner.nextInt();
+        Scanner scanner = new Scanner(System.in);
+        int[][] hourGlass = new int[6][6];
+        for(int i = 0; i < 6; i++){
+            for(int j = 0; j < 6; j++){
+                hourGlass[i][j] = scanner.nextInt();
+            }
         }
-        reverseArray(arr);
+        scanner.close();
+        System.out.println(hourGlassSum(hourGlass));
     }
 }
